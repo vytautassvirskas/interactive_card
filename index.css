@@ -1,0 +1,138 @@
+:root{
+    --Red: hsl(0, 100%, 66%);
+    --White: hsl(0, 0%, 100%);
+    --LightGrayishViolet: hsl(270, 3%, 87%);
+    --DarkGrayishViolet: hsl(279, 6%, 55%);
+    --VeryDarkViolet: hsl(278, 68%, 11%);
+
+
+}
+
+html, body, p, h1 {
+    margin: 0;
+}
+main{
+    position: relative;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--VeryDarkViolet);
+}
+main > img, main > div{
+    position: absolute;
+    /* top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; */
+}
+.left-decoration{
+    height: 100vh;
+}
+.front-card{
+    top: 100px;
+    left: 100px;
+}
+
+.front-card>p,.front-card>div{
+    position: absolute;
+    color: var(--White);
+
+    
+}
+.front-card__circle{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--White);
+    top: 30px;
+    left: 30px;
+}
+
+.front-card__circle::after{
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--White);
+    right: -40px;
+    top: calc(50% - 10px);
+    /* top: 20px;
+    rigth: 20px; */
+}
+
+.front-card__number{
+    left: 30px;
+    bottom: 70px;
+    font-size: 32px;
+    color: white;
+}
+.front-card__fullname{
+    bottom: 30px;
+    left: 30px;
+}
+.front-card__expire-date{
+    bottom: 30px;
+    right: 30px;
+}
+
+.back-card{
+    top: 400px;
+    left: 200px;
+}
+.back-card__cvc{
+    position: absolute;
+    top: 110px;
+    right: 50px;
+}
+
+.form{
+    position: absolute;
+    right: 100px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form__input-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+
+}
+.form__inputs-container{
+    display: flex;
+    justify-content: space-between;
+}
+.form__expire-inputs-wrapper{
+    display: flex;
+}
+
+.form__label{
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.form__input{
+    border-radius: 5px;
+    border: 1px solid var(--LightGrayishViolet);
+    padding: 10px;
+    font-size: 16px;
+}
+
+.form__error-message{
+    font-size: 14px;
+    color: var(--Red);
+    margin-top: 5px;
+}
+
+.form__btn{
+    background-color: var(--VeryDarkViolet);
+    color: var(--White);
+    width: 100%;
+    border-radius: 5px;
+    padding: 10px 0;
+    
+}

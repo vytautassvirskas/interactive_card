@@ -1,21 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./index.css">
   <title>Frontend Mentor | Interactive card details form</title>
 </head>
+
 <body>
   <main>
-    
+    <img class="left-decoration" src="./images/bg-main-desktop.png" alt="">
+    <div class="front-card">
+      <img class="front-card__img" src="./images/bg-card-front.png" alt="card-front">
+      <div class="front-card__circle"></div>
+      <p class="front-card__number">0000 0000 0000 0000</p>
+      <p class="front-card__fullname">Jane Appleseed</p>
+      <p class="front-card__expire-date">00/00</p>
+    </div>
+    <div class="back-card">
+      <img class="back-card__img" src="./images/bg-card-back.png" alt="card-front">
+      <p class="back-card__cvc">000</p>
+    </div>
+    <form class="form" action="">
+      <div class="form__input-wrapper">
+        <label class="form__label" for="cardholder-name">Cardholder name</label>
+        <input class="form__input" type="text" id="cardholder-name" placeholder="e.g. Jane Applessed">
+        <p class="form__error-message">Cant't be blank</p>
+      </div>
+      <div class="form__input-wrapper">
+        <label class="form__label" for="card-number">Cardholder number</label>
+        <input class="form__input" type="number" id="card-number" placeholder="e.g. 1234 5678 9123 0000">
+        <p class="form__error-message">Wrong format, numbers only</p>
+      </div>
+      <div class="form__inputs-container">
+        <div class="form__input-wrapper">
+          <label class="form__label" for="card-expire-month">Exp. date (mm/yy)</label>
+          <div class="form__expire-inputs-wrapper">
+            <input class="form__input" type="number" id="card-expire-month" placeholder="MM">
+            <input class="form__input" type="number" id="card-expire-year" placeholder="YY">
+          </div>
+          <p class="form__error-message">Cant't be blank</p>
+        </div>
+        <div class="form__input-wrapper">
+          <label class="form__label" for="card-cvc">cvc</label>
+          <input class="form__input" type="number" id="card-cvc" placeholder="e.g. 123">
+          <p class="form__error-message">Cant't be blank</p>
+        </div>
+      </div>
+      <button class="form__btn">Confirm</button>
+
+    </form>
+
+
   </main>
 
-  0000 0000 0000 0000
-  Jane Appleseed
-  00/00
 
-  000
+
+
+
+  <!-- 000
 
   Cardholder Name
   e.g. Jane Appleseed
@@ -30,17 +78,14 @@
   CVC
   e.g. 123
 
-  Confirm
+  Confirm -->
 
   <!-- Completed state start -->
-
+  <!-- 
   Thank you!
   We've added your card details
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  Continue -->
+
 </body>
+
 </html>
