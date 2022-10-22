@@ -13,6 +13,7 @@ html, body, p, h1 {
 }
 main{
     position: relative;
+    height: 100vh;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 500;
     font-size: 18px;
@@ -27,10 +28,15 @@ main > img, main > div{
 }
 .left-decoration{
     height: 100vh;
+    width: 33%;
 }
 .front-card{
-    top: 100px;
-    left: 100px;
+    width: 22%;
+    bottom: 500px;
+    left: 17%;
+}
+.front-card__img{
+    width: 100%;
 }
 
 .front-card>p,.front-card>div{
@@ -40,56 +46,66 @@ main > img, main > div{
     
 }
 .front-card__circle{
-    width: 50px;
-    height: 50px;
+    width: 10%;
+    height: 18%;
     border-radius: 50%;
     background-color: var(--White);
-    top: 30px;
-    left: 30px;
+    top: 10%;
+    left: 6%;
 }
 
 .front-card__circle::after{
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 35%;
+    height: 35%;
     border-radius: 50%;
     border: 2px solid var(--White);
-    right: -40px;
-    top: calc(50% - 10px);
+    right: -100%;
+    top: 30%;
     /* top: 20px;
     rigth: 20px; */
 }
 
 .front-card__number{
-    left: 30px;
-    bottom: 70px;
-    font-size: 32px;
+    /* font-size: 32px; */
+    font-size: 1.6vw;
+    left: 6%;
+    bottom: 24%;
     color: white;
 }
 .front-card__fullname{
-    bottom: 30px;
-    left: 30px;
+    font-size: 1vw;
+    bottom: 10%;
+    left: 6%;
 }
 .front-card__expire-date{
-    bottom: 30px;
-    right: 30px;
+    font-size: 1vw;
+    bottom: 10%;
+    right: 6%;
 }
 
 .back-card{
-    top: 400px;
-    left: 200px;
+    width: 22%;
+    top: 540px;
+   
+    left: 22%;
+}
+.back-card__img{
+    width: 100%;
+   
 }
 .back-card__cvc{
+    font-size: 1vw;
     position: absolute;
-    top: 110px;
-    right: 50px;
+    bottom: 46.5%;
+    right: 12%;
 }
 
 .form{
-    position: absolute;
+    /* position: absolute;
     right: 100px;
-    top: 100px;
+    top: 100px; */
     display: flex;
     flex-direction: column;
     max-width: 400px;
