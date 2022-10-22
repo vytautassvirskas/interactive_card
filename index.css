@@ -7,6 +7,9 @@
 
 
 }
+* {
+    box-sizing: border-box;
+}
 
 html, body, p, h1 {
     margin: 0;
@@ -21,10 +24,6 @@ main{
 }
 main > img, main > div{
     position: absolute;
-    /* top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; */
 }
 .left-decoration{
     height: 100vh;
@@ -63,8 +62,7 @@ main > img, main > div{
     border: 2px solid var(--White);
     right: -100%;
     top: 30%;
-    /* top: 20px;
-    rigth: 20px; */
+
 }
 
 .front-card__number{
@@ -103,9 +101,9 @@ main > img, main > div{
 }
 
 .form{
-    /* position: absolute;
-    right: 100px;
-    top: 100px; */
+    position: absolute;
+    left: 55%;
+    top: 300px;
     display: flex;
     flex-direction: column;
     max-width: 400px;
@@ -122,8 +120,16 @@ main > img, main > div{
     display: flex;
     justify-content: space-between;
 }
+.form__inputs-container .form__input-wrapper{
+    width: 50%;
+ 
+}
 .form__expire-inputs-wrapper{
     display: flex;
+}
+.form__expire-inputs-wrapper .form__input{
+    width: 50%;
+    margin-right: 10px;
 }
 
 .form__label{
@@ -136,6 +142,7 @@ main > img, main > div{
     border: 1px solid var(--LightGrayishViolet);
     padding: 10px;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .form__error-message{
@@ -146,9 +153,16 @@ main > img, main > div{
 
 .form__btn{
     background-color: var(--VeryDarkViolet);
+    border: 1px solid var(--VeryDarkViolet);
     color: var(--White);
     width: 100%;
     border-radius: 5px;
     padding: 10px 0;
+    cursor: pointer;
     
+}
+
+.form__btn:hover{
+    background-color:rgb(49,13,64);
+    border:1px solid rgb(49,13,64);
 }
