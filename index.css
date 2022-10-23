@@ -94,6 +94,7 @@ main > img, main > div{
    
 }
 .back-card__cvc{
+    color: var(--White);
     font-size: 1vw;
     position: absolute;
     bottom: 46.5%;
