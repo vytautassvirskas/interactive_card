@@ -111,6 +111,10 @@ main > img, main > div{
     margin: 0 auto;
 }
 
+.form--hidden, .form__error-message--hiden{
+    display: none;
+}
+
 .form__input-wrapper{
     display: flex;
     flex-direction: column;
@@ -138,6 +142,7 @@ main > img, main > div{
     margin-bottom: 5px;
     font-size: 16px;
 }
+
 .form__input{
     border-radius: 5px;
     border: 1px solid var(--LightGrayishViolet);
@@ -167,3 +172,4 @@ main > img, main > div{
     background-color:rgb(49,13,64);
     border:1px solid rgb(49,13,64);
 }
+

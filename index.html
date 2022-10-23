@@ -30,16 +30,16 @@
       <img class="back-card__img" src="./images/bg-card-back.png" alt="card-front">
       <p class="back-card__cvc">000</p>
     </div>
-    <form class="form" action="">
+    <form class="form" action="POST">
       <div class="form__input-wrapper">
         <label class="form__label" for="cardholder-name">Cardholder name</label>
         <input class="form__input" type="text" id="cardholder-name" placeholder="e.g. Jane Applessed">
-        <p class="form__error-message">Cant't be blank</p>
+        <p class="form__error-message  form__error-message--hiden">Cant't be blank</p>
       </div>
       <div class="form__input-wrapper">
         <label class="form__label" for="card-number">Cardholder number</label>
-        <input class="form__input" type="number" id="card-number" placeholder="e.g. 1234 5678 9123 0000">
-        <p class="form__error-message">Wrong format, numbers only</p>
+        <input class="form__input" type="text" id="card-number" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+        <p class="form__error-message  form__error-message--hiden">Wrong format, numbers only</p>
       </div>
       <div class="form__inputs-container">
         <div class="form__input-wrapper">
@@ -48,15 +48,15 @@
             <input class="form__input" type="number" id="card-expire-month" placeholder="MM">
             <input class="form__input" type="number" id="card-expire-year" placeholder="YY">
           </div>
-          <p class="form__error-message">Cant't be blank</p>
+          <p class="form__error-message  form__error-message--hiden">Cant't be blank</p>
         </div>
         <div class="form__input-wrapper">
           <label class="form__label" for="card-cvc">cvc</label>
           <input class="form__input" type="number" id="card-cvc" placeholder="e.g. 123">
-          <p class="form__error-message">Cant't be blank</p>
+          <p class="form__error-message  form__error-message--hiden">Cant't be blank</p>
         </div>
       </div>
-      <button class="form__btn">Confirm</button>
+      <button class="form__btn" type="submit">Confirm</button>
     </form>
   </main>
 
