@@ -31,7 +31,7 @@ main > img, main > div{
 }
 .front-card{
     width: 22%;
-    bottom: 500px;
+    bottom: 51%;
     left: 17%;
 }
 .front-card__img{
@@ -85,7 +85,7 @@ main > img, main > div{
 
 .back-card{
     width: 22%;
-    top: 540px;
+    top: 51%;
    
     left: 22%;
 }
@@ -104,14 +104,14 @@ main > img, main > div{
 .form{
     position: absolute;
     left: 55%;
-    top: 300px;
+    top: 30%;
     display: flex;
     flex-direction: column;
     max-width: 400px;
     margin: 0 auto;
 }
 
-.form--hidden, .form__error-message--hiden{
+.form--hidden, .form__error--hiden{
     display: none;
 }
 
@@ -151,7 +151,7 @@ main > img, main > div{
     cursor: pointer;
 }
 
-.form__error-message{
+.form__error{
     font-size: 14px;
     color: var(--Red);
     margin-top: 5px;

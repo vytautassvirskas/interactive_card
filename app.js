@@ -1,5 +1,3 @@
-
-
 const data = {
     name: document.querySelector("#cardholder-name"),
     number: document.querySelector("#card-number"),
@@ -16,6 +14,15 @@ const card ={
     cvc: document.querySelector(".back-card__cvc")
 }
 
+const message={
+    name: document.querySelector("#error-name"),
+    number: document.querySelector("#error-number"),
+    expireDate: document.querySelector("#error-expire"),
+    cvc: document.querySelector("#error-cvc"),
+}
+
+console.log(message)
+
 const confirm = document.querySelector(".form__btn");
 const form = document.querySelector(".form");
 
@@ -25,7 +32,6 @@ const fillData = (inputName, cardPlace) => {
         if(inputName== data.number) {
             // e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
             e.target.value = e.target.value.replace(/[^\dA-Z]/g, '').replace(/(.{4})/g, '$1 ').trim();
-
         }
         cardPlace.innerText = e.target.value;
     })
@@ -36,35 +42,46 @@ fillData(data.expireDateMonth, card. expireDateMonth); //max 12 menesiu, tai 12 
 fillData(data.expireDateYear, card.expireDateYear); //max 99 metu, tai 99 maks
 fillData(data.cvc, card.cvc);
 
-// data.name.addEventListener("input", (e) => {
-//     console.log("e.target.value: ", e.target.value);
-//     card.name.innerText = e.target.value;
-// })
-
 confirm.addEventListener("click", (e) => {
     e.preventDefault();
-    data.name.value === "" 
-    ? 
-    data.name.nextElementSibling.classList.remove("form__error-message--hiden")
-    :
-    data.name.nextElementSibling.classList.add("form__error-message--hiden")
-
-    data.number.value === "" ?
-    data.number.nextElementSibling.classList.remove("form__error-message--hiden")
-    :
-    data.number.nextElementSibling.classList.add("form__error-message--hiden")
-
-    if(data.expireDateMonth.value === "" || data.expireDateYear.value==="") {
-        data.expireDateYear.parentElement.nextElementSibling.classList.remove("form__error-message--hiden");
-    }else {
-        data.expireDateYear.parentElement.nextElementSibling.classList.add("form__error-message--hiden");
+    const numbers = /^[0-9]+$/;
+    // name
+    if(data.name.value === ""){
+        message.name.classList.remove("form__error--hiden")
+    }else{
+        message.name.classList.add("form__error--hiden")
     }
-    data.cvc.value === "" 
-    ?
-    data.cvc.nextElementSibling.classList.remove("form__error-message--hiden") 
-    :
-    data.cvc.nextElementSibling.classList.add("form__error-message--hiden")
+    // card number
+    if(data.number.value === ""){
+        message.number.classList.remove("form__error--hiden")
+    }else if(data.number.value.match(numbers) && data.number.value.length === 6){
+        console.log("yra suvesti skaiciai card number")
+        message.number.innerText="Cant't be blank"
+        message.number.classList.add("form__error--hiden")
+    }
+    else{
+        console.log("yra kitu simboliu card number")
+        message.number.innerText="Wrong format, numbers only"
+        message.number.classList.remove("form__error--hiden")
+    }
+    // cvc
+    if(data.cvc.value === "" ){
+        message.cvc.classList.remove("form__error--hiden") 
+    }else if(data.cvc.value.match(numbers) && data.cvc.value.length === 3){
+        console.log("yra suvesti skaiciai CVC")
+        message.cvc.innerText="Cant't be blank"
+        message.cvc.classList.add("form__error--hiden")
 
-    // form.classList.add("form--hidden");
-
+    }else{
+        console.log("yra kitu simboliu CVC")
+        message.cvc.innerText="Wrong format, numbers only"
+        message.cvc.classList.remove("form__error--hiden")
+    }
+    // expire date
+    if(data.expireDateMonth.value === "" || data.expireDateYear.value==="") {
+        message.expireDate.classList.remove("form__error--hiden");
+    }else {
+        message.expireDate.classList.add("form__error--hiden");
+    }
+    
 })
