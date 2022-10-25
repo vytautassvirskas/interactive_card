@@ -32,6 +32,16 @@ const fillData = (inputName, cardPlace) => {
         if(inputName== data.number) {
             e.target.value = e.target.value.replace(/[^\dA-Z]/gi, '').replace(/(.{4})/g, '$1 ').trim();
         }
+        if(inputName== data.expireDateMonth) {
+            if(e.target.value < 10 && e.target.value.length==1) {
+                return cardPlace.innerText = "0" + e.target.value;
+            }
+        }
+        if(inputName== data.expireDateYear) {
+            if(e.target.value < 10 && e.target.value.length==1) {
+                return cardPlace.innerText = "0" + e.target.value;
+            }
+        }
         cardPlace.innerText = e.target.value;
     })
 }
