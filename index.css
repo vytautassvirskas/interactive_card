@@ -140,7 +140,8 @@ main > img, main > div{
 .form__label{
     text-transform: uppercase;
     margin-bottom: 5px;
-    font-size: 16px;
+    font-size: 12px;
+    letter-spacing: 2px;
 }
 
 .form__input{
@@ -148,7 +149,12 @@ main > img, main > div{
     border: 1px solid var(--LightGrayishViolet);
     padding: 10px;
     font-size: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--VeryDarkViolet);
     cursor: pointer;
+}
+.form__input--error{
+    border: 1px solid var(--Red);
 }
 
 .form__error{
