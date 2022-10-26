@@ -32,7 +32,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [](https://clever-clafoutis-748ae0.netlify.app/)
+- Live Site URL: [here](https://clever-clafoutis-748ae0.netlify.app/)
 
 ### Built with
 
