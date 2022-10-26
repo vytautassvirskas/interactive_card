@@ -21,14 +21,19 @@ const message={
     cvc: document.querySelector("#error-cvc"),
 }
 
-console.log(message)
-
 const confirm = document.querySelector(".form__btn");
 const form = document.querySelector(".form");
+const complete =document.querySelector(".complete");
+
 
 const fillData = (inputName, cardPlace) => {
     inputName.addEventListener("input", (e) => {
-        if(e.target.value === " ") return
+        if(e.target.value === " "|| e.target.value.replace(/\s/g, '').length === 0) {
+            if (cardPlace===card.name) cardPlace.innerText=inputName.placeholder.slice(5);
+            if(cardPlace===card.number) cardPlace.innerText="0000 0000 0000 0000";
+            if(cardPlace===card.expireDateMonth || cardPlace===card.expireDateYear) cardPlace.innerText="00";
+            if(cardPlace===card.cvc) cardPlace.innerText="000";
+            return }
         if(inputName== data.number) {
             e.target.value = e.target.value.replace(/[^\dA-Z]/gi, '').replace(/(.{4})/g, '$1 ').trim();
         }
@@ -56,7 +61,6 @@ const messageError = (messagePLace, messageText, inputName1, inputName2 ) => {
     messagePLace.classList.remove("form__error--hiden")
     inputName1 && inputName1.classList.add("form__input--error")
     inputName2 && inputName2.classList.add("form__input--error")
-
 }
 
 const deleteMessageError = (messagePLace, inputName1, inputName2 ) => {
@@ -68,20 +72,31 @@ const deleteMessageError = (messagePLace, inputName1, inputName2 ) => {
 confirm.addEventListener("click", (e) => {
     e.preventDefault();
     const numbers = /^[0-9]+$/;
-
+    const letters = /^[a-zA-Z\s]*$/;
+    let isNameInputValid = false;
+    let isNumberInputValid = false;
+    let isExpireInputValid = false;
+    let isCvcInputValid = false;
+    
     // name
-    if(data.name.value === ""){
-        messageError(message.name, "Cant't be blank",data.name )
-    }else{
+    if(data.name.value.match(letters) && data.name.value.replace(/\s/g, '').length !== 0){
         deleteMessageError(message.name, data.name)
+        isNameInputValid = true;
+    }else if(data.name.value === "" ){
+        messageError(message.name, "Cant't be blank",data.name )
+    }
+    else{
+        messageError(message.name, "Wrong format, letters only")
     }
     
     // card number
-    if(data.number.value === ""){
-        messageError(message.number, "Cant't be blank",data.number )
-    }else if(+data.number.value.replace(/\s/g, '').match(numbers) && data.number.value.replace(/\s/g, '').length === 16){
+    if(+data.number.value.replace(/\s/g, '').match(numbers) && data.number.value.replace(/\s/g, '').length === 16){
         deleteMessageError(message.number, data.number)
-    }else if(+data.number.value.replace(/\s/g, '').match(numbers) && data.number.value.replace(/\s/g, '').length !== 16){
+        isNumberInputValid = true;
+    }else if(data.number.value === ""){
+        messageError(message.number, "Cant't be blank",data.number )
+    }
+    else if(+data.number.value.replace(/\s/g, '').match(numbers) && data.number.value.replace(/\s/g, '').length !== 16){
         messageError(message.number, "Card number must be 16 digits")
     }
     else{
@@ -89,35 +104,40 @@ confirm.addEventListener("click", (e) => {
     }
 
     // expire date
-    if(data.expireDateMonth.value === "" || data.expireDateYear.value==="") {
-        messageError(message.expireDate, "Cant't be blank",data.expireDateMonth, data.expireDateYear )
-    }else if(
-        data.expireDateMonth.value.match(numbers) && data.expireDateMonth.value >0 && data.expireDateMonth.value <=12
+    if(data.expireDateMonth.value.match(numbers) && data.expireDateMonth.value >0 && data.expireDateMonth.value <=12
         && data.expireDateYear.value.match(numbers) && data.expireDateYear.value >0 && data.expireDateYear.value <=99
         ){
         deleteMessageError(message.expireDate, data.expireDateMonth, data.expireDateYear)
-    }else if(
+        isExpireInputValid = true;
+    }else if(data.expireDateMonth.value === "" || data.expireDateYear.value==="") {
+        messageError(message.expireDate, "Cant't be blank",data.expireDateMonth, data.expireDateYear )
+    }
+    else if(
         (data.expireDateMonth.value.match(numbers) && (data.expireDateMonth.value <=0 || data.expireDateMonth.value >12))
         || 
         (data.expireDateYear.value.match(numbers) && (data.expireDateYear.value <22 || data.expireDateYear.value >99))
         ){
-            messageError(message.expireDate, "MM must be between 1-12 and YY between 01-99",data.expireDateMonth, data.expireDateYear )
-        }
-        else {
-            messageError(message.expireDate, "Wrong format, numbers only",data.expireDateMonth, data.expireDateYear )
-        }
+        messageError(message.expireDate, "MM must be between 1-12 and YY between 01-99",data.expireDateMonth, data.expireDateYear )
+    }else {
+        messageError(message.expireDate, "Wrong format, numbers only",data.expireDateMonth, data.expireDateYear )
+    }
         
         // cvc
-        if(data.cvc.value === "" ){
-            messageError(message.cvc, "Cant't be blank",data.cvc )
-        }
-        else if(data.cvc.value.match(numbers) && data.cvc.value.length !== 3){
-            messageError(message.cvc, "CVC must be 3 digits")
-        }
-        else if(data.cvc.value.match(numbers) && data.cvc.value.length === 3){
-            deleteMessageError(message.cvc, data.cvc)
-        }else{
-            messageError(message.cvc, "Wrong format, numbers only")
-        }
+    if(data.cvc.value.match(numbers) && data.cvc.value.length === 3){
+        deleteMessageError(message.cvc, data.cvc)
+        isCvcInputValid = true;
+    }else if(data.cvc.value.match(numbers) && data.cvc.value.length !== 3){
+        messageError(message.cvc, "CVC must be 3 digits")
+    }else if(data.cvc.value === "" ){
+        messageError(message.cvc, "Cant't be blank",data.cvc )
+    }else{
+        messageError(message.cvc, "Wrong format, numbers only")
+    }
     
+    if(isNameInputValid&&isNumberInputValid&&isExpireInputValid&&isCvcInputValid) {
+        form.classList.add("form--hidden");
+        complete.classList.remove("complete--hidden");
+        return
+    }
+        
 })

@@ -101,7 +101,7 @@ main > img, main > div{
     right: 12%;
 }
 
-.form{
+.form, .complete{
     position: absolute;
     left: 55%;
     top: 30%;
@@ -111,7 +111,7 @@ main > img, main > div{
     margin: 0 auto;
 }
 
-.form--hidden, .form__error--hiden{
+.form--hidden{
     display: none;
 }
 
@@ -145,6 +145,7 @@ main > img, main > div{
 }
 
 .form__input{
+    position: relative;
     border-radius: 5px;
     border: 1px solid var(--LightGrayishViolet);
     padding: 10px;
@@ -152,6 +153,14 @@ main > img, main > div{
     font-family: 'Space Grotesk', sans-serif;
     color: var(--VeryDarkViolet);
     cursor: pointer;
+}
+.form__input:focus{
+    outline: none;
+    background: linear-gradient(#fff, #fff) padding-box,
+              linear-gradient(hsl(249, 99%, 64%), hsl(278, 94%, 30%)) border-box;
+  border: 1px solid transparent;
+  border-radius: 5px;
+    
 }
 .form__input--error{
     border: 1px solid var(--Red);
@@ -162,8 +171,11 @@ main > img, main > div{
     color: var(--Red);
     margin-top: 5px;
 }
+.form__error--hiden{
+    display: none;
+}
 
-.form__btn{
+.form__btn, .complete__btn{
     background-color: var(--VeryDarkViolet);
     border: 1px solid var(--VeryDarkViolet);
     color: var(--White);
@@ -174,8 +186,30 @@ main > img, main > div{
     
 }
 
-.form__btn:hover{
+.form__btn:hover, .complete__btn:hover{
     background-color:rgb(49,13,64);
     border:1px solid rgb(49,13,64);
 }
 
+.complete{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 400px;
+    
+}
+.complete--hidden{
+    display: none;
+}
+.complete__caption{
+    text-transform: uppercase;
+    font-size: 24px;
+    letter-spacing: 4px;
+    font-weight: 500;
+}
+.complete__details{
+    font-size: 15px;
+    color: var(--DarkGrayishViolet);
+    margin-bottom: 15px;
+}
