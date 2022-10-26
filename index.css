@@ -225,10 +225,15 @@ main > img, main > div{
   
     .front-card {
         /* position: absolute; */
-        width: 77%;
+        /* width: 77%; */
+        height: 22%;
         bottom: 64%;
         left: 5%;
         z-index: 2;
+    }
+    .front-card__img {
+        /* height: 100%; */
+        /* width: 100%; */
     }
     .front-card__number {
         /* font-size: 32px; */
@@ -246,13 +251,14 @@ main > img, main > div{
     }
     .back-card {
         width: 77%;
+        height: 22%;
         top: 3%;
         left: 16%;
         z-index: 1;
     }
     .back-card__cvc {
         font-size: 3vw;
-        bottom: 47.5%
+        bottom: 49.5%;
     }
     .form, .complete{
         position: relative;
