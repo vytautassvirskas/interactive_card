@@ -24,6 +24,7 @@ const message={
 const confirm = document.querySelector(".form__btn");
 const form = document.querySelector(".form");
 const complete =document.querySelector(".complete");
+const completeBtn=document.querySelector(".complete__btn");
 
 
 const fillData = (inputName, cardPlace) => {
@@ -86,7 +87,7 @@ confirm.addEventListener("click", (e) => {
         messageError(message.name, "Cant't be blank",data.name )
     }
     else{
-        messageError(message.name, "Wrong format, letters only")
+        messageError(message.name, "Wrong format, letters only",data.name)
     }
     
     // card number
@@ -97,15 +98,15 @@ confirm.addEventListener("click", (e) => {
         messageError(message.number, "Cant't be blank",data.number )
     }
     else if(+data.number.value.replace(/\s/g, '').match(numbers) && data.number.value.replace(/\s/g, '').length !== 16){
-        messageError(message.number, "Card number must be 16 digits")
+        messageError(message.number, "Card number must be 16 digits",data.number)
     }
     else{
-        messageError(message.number, "Wrong format, numbers only")
+        messageError(message.number, "Wrong format, numbers only",data.number)
     }
 
     // expire date
     if(data.expireDateMonth.value.match(numbers) && data.expireDateMonth.value >0 && data.expireDateMonth.value <=12
-        && data.expireDateYear.value.match(numbers) && data.expireDateYear.value >0 && data.expireDateYear.value <=99
+        && data.expireDateYear.value.match(numbers) && data.expireDateYear.value >=0 && data.expireDateYear.value <=99
         ){
         deleteMessageError(message.expireDate, data.expireDateMonth, data.expireDateYear)
         isExpireInputValid = true;
@@ -115,9 +116,9 @@ confirm.addEventListener("click", (e) => {
     else if(
         (data.expireDateMonth.value.match(numbers) && (data.expireDateMonth.value <=0 || data.expireDateMonth.value >12))
         || 
-        (data.expireDateYear.value.match(numbers) && (data.expireDateYear.value <22 || data.expireDateYear.value >99))
+        (data.expireDateYear.value.match(numbers) && (data.expireDateYear.value <0 || data.expireDateYear.value >99))
         ){
-        messageError(message.expireDate, "MM must be between 1-12 and YY between 01-99",data.expireDateMonth, data.expireDateYear )
+        messageError(message.expireDate, "MM must be between 1-12 and YY between 00-99",data.expireDateMonth, data.expireDateYear )
     }else {
         messageError(message.expireDate, "Wrong format, numbers only",data.expireDateMonth, data.expireDateYear )
     }
@@ -131,7 +132,7 @@ confirm.addEventListener("click", (e) => {
     }else if(data.cvc.value === "" ){
         messageError(message.cvc, "Cant't be blank",data.cvc )
     }else{
-        messageError(message.cvc, "Wrong format, numbers only")
+        messageError(message.cvc, "Wrong format, numbers only",data.cvc)
     }
     
     if(isNameInputValid&&isNumberInputValid&&isExpireInputValid&&isCvcInputValid) {
@@ -140,4 +141,8 @@ confirm.addEventListener("click", (e) => {
         return
     }
         
+})
+
+completeBtn.addEventListener("click", () => {
+    window.location.reload();
 })

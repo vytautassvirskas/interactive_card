@@ -74,6 +74,7 @@ main > img, main > div{
 }
 .front-card__fullname{
     font-size: 1vw;
+    text-transform: uppercase;
     bottom: 10%;
     left: 6%;
 }
@@ -213,3 +214,77 @@ main > img, main > div{
     color: var(--DarkGrayishViolet);
     margin-bottom: 15px;
 }
+
+@media (max-width:768px) {
+    .left-decoration{
+        height: 30vh;
+        width: 100vw;
+        position: relative;
+        vertical-align: top 
+    }
+  
+    .front-card {
+        /* position: absolute; */
+        width: 77%;
+        bottom: 64%;
+        left: 5%;
+        z-index: 2;
+    }
+    .front-card__number {
+        /* font-size: 32px; */
+        font-size: 5.6vw;
+        bottom: 29%;
+
+    }
+    .front-card__fullname {
+        font-size: 3vw;
+        bottom: 12%;
+    }
+    .front-card__expire-date {
+        font-size: 3vw;
+        bottom: 12%;
+    }
+    .back-card {
+        width: 77%;
+        top: 3%;
+        left: 16%;
+        z-index: 1;
+    }
+    .back-card__cvc {
+        font-size: 3vw;
+        bottom: 47.5%
+    }
+    .form, .complete{
+        position: relative;
+        left: 0;
+        top: 0;
+        justify-content: center;
+        height: 70vh;
+        max-width: 80%;
+        margin: 0 auto;
+    }
+}
+
+/* @media (max-width: 768px) {
+    body{
+        font-size: 13px;
+    }
+    .notification{
+        padding: 20px 10px ;
+        margin: 0 auto;
+        
+    }
+    .notification__heading{
+        font-size: 20px;
+
+    }
+    .notification__count{
+        font-size:14px;
+        margin-left: 10px;
+    }
+    .notification__img-wrapper{
+        width:40px;
+        margin-right: 20px;
+        flex-shrink: 0;
+    }
+} */
